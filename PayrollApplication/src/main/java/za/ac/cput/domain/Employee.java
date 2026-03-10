@@ -10,7 +10,8 @@ public class Employee {
     private ContactDetails contact;
     private AddressDetails address;
 
-    public Employee() {}
+    public Employee() {
+    }
 
     private Employee(Builder builder) {
         this.employeeNumber = builder.employeeNumber;
@@ -21,19 +22,32 @@ public class Employee {
         this.address = builder.address;
     }
 
-    // Getters and Setters
-    public String getEmployeeNumber() { return employeeNumber; }
-    public void setEmployeeNumber(String employeeNumber) { this.employeeNumber = employeeNumber; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getEmploymentType() { return employmentType; }
-    public void setEmploymentType(String employmentType) { this.employmentType = employmentType; }
-    public String getNationality() { return nationality; }
-    public void setNationality(String nationality) { this.nationality = nationality; }
-    public ContactDetails getContact() { return contact; }
-    public void setContact(ContactDetails contact) { this.contact = contact; }
-    public AddressDetails getAddress() { return address; }
-    public void setAddress(AddressDetails address) { this.address = address; }
+    // Getters
+    public String getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public String getEmploymentType() {
+        return employmentType;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public ContactDetails getContact() {
+        return contact;
+    }
+
+    public AddressDetails getAddress() {
+        return address;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -44,7 +58,9 @@ public class Employee {
     }
 
     @Override
-    public int hashCode() { return Objects.hash(employeeNumber); }
+    public int hashCode() {
+        return Objects.hash(employeeNumber);
+    }
 
     @Override
     public String toString() {
@@ -56,12 +72,35 @@ public class Employee {
         private ContactDetails contact;
         private AddressDetails address;
 
-        public Builder setEmployeeNumber(String employeeNumber) { this.employeeNumber = employeeNumber; return this; }
-        public Builder setName(String name) { this.name = name; return this; }
-        public Builder setEmploymentType(String employmentType) { this.employmentType = employmentType; return this; }
-        public Builder setNationality(String nationality) { this.nationality = nationality; return this; }
-        public Builder setContact(ContactDetails contact) { this.contact = contact; return this; }
-        public Builder setAddress(AddressDetails address) { this.address = address; return this; }
+        public Builder setEmployeeNumber(String employeeNumber) {
+            this.employeeNumber = employeeNumber;
+            return this;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setEmploymentType(String employmentType) {
+            this.employmentType = employmentType;
+            return this;
+        }
+
+        public Builder setNationality(String nationality) {
+            this.nationality = nationality;
+            return this;
+        }
+
+        public Builder setContact(ContactDetails contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        public Builder setAddress(AddressDetails address) {
+            this.address = address;
+            return this;
+        }
 
         public Builder copy(Employee employee) {
             this.employeeNumber = employee.employeeNumber;
@@ -73,6 +112,8 @@ public class Employee {
             return this;
         }
 
-        public Employee build() { return new Employee(this); }
+        public Employee build() {
+            return new Employee(this);
+        }
     }
 }

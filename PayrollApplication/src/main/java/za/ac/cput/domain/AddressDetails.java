@@ -16,10 +16,13 @@ public class AddressDetails {
         this.postalAddress = builder.postalAddress;
     }
 
-    public String getStreetAddress() { return streetAddress; }
-    public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
-    public String getPostalAddress() { return postalAddress; }
-    public void setPostalAddress(String postalAddress) { this.postalAddress = postalAddress; }
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public String getPostalAddress() {
+        return postalAddress;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -30,15 +33,34 @@ public class AddressDetails {
     }
 
     @Override
-    public int hashCode() { return Objects.hash(streetAddress); }
+    public int hashCode() {
+        return Objects.hash(streetAddress);
+    }
 
     @Override
-    public String toString() { return "AddressDetails{" + "street='" + streetAddress + '\'' + '}'; }
+    public String toString() {
+        return "AddressDetails{" + "street='" + streetAddress + '\'' + '}';
+    }
 
     public static class Builder {
-        private String streetAddress, postalAddress;
-        public Builder setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; return this; }
-        public Builder setPostalAddress(String postalAddress) { this.postalAddress = postalAddress; return this; }
-        public AddressDetails build() { return new AddressDetails(this); }
+
+        private String streetAddress;
+        private String postalAddress;
+        public Builder setStreetAddress(String streetAddress) {
+            this.streetAddress = streetAddress;
+            return this;
+        }
+        public Builder setPostalAddress(String postalAddress) {
+            this.postalAddress = postalAddress;
+            return this;
+        }
+
+//        public AddressDetails.Builder copy(Employee address) {
+//            this.postalAddress
+//
+//        }
+        public AddressDetails build(){
+            return new AddressDetails(this);
+        }
     }
 }

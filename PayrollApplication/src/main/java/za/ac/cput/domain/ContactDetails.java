@@ -7,7 +7,8 @@ public class ContactDetails {
     private String email;
     private String homeNumber;
 
-    public ContactDetails() {}
+    public ContactDetails() {
+    }
 
     private ContactDetails(Builder builder) {
         this.cellPhone = builder.cellPhone;
@@ -15,13 +16,16 @@ public class ContactDetails {
         this.homeNumber = builder.homeNumber;
     }
 
-    public String getCellPhone() { return cellPhone; }
-    public void setCellPhone(String cellPhone) { this.cellPhone = cellPhone; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getHomeNumber() { return homeNumber; }
-    public void setHomeNumber(String homeNumber) { this.homeNumber = homeNumber; }
+    public String getCellPhone() {
+        return cellPhone;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+    public String getHomeNumber() {
+        return homeNumber;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,14 +50,20 @@ public class ContactDetails {
         private String homeNumber;
 
         public Builder setCellPhone(String cellPhone) {
-            this.cellPhone = cellPhone; return this;
+            this.cellPhone = cellPhone;
+            return this;
         }
+
         public Builder setEmail(String email) {
-            this.email = email; return this;
+            this.email = email;
+            return this;
         }
+
         public Builder setHomeNumber(String homeNumber) {
-            this.homeNumber = homeNumber; return this;
+            this.homeNumber = homeNumber;
+            return this;
         }
+
         public ContactDetails build() {
             return new ContactDetails(this);
         }
