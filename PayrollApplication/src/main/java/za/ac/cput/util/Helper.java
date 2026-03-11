@@ -13,6 +13,14 @@ public class Helper {
         return false;
     }
 
+    //do is valid number then after that do the testing
+public static boolean isValidNumber(int number){
+    if (number < 0){
+        return false;
+    }
+    return true;
+}
+
 
     public static boolean isValidEmail(String email) {
         return EmailValidator.getInstance().isValid(email);

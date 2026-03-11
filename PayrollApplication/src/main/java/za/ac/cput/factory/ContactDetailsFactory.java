@@ -6,10 +6,13 @@ import za.ac.cput.util.Helper;
 public class ContactDetailsFactory {
 
     public static ContactDetails createContactDetails(String cellPhone, String email, String homeNumber) {
-        if (Helper.isNullOrEmpty(email) || !Helper.isValidEmail(email)) {
+        if (Helper.isNullOrEmpty(email)) {
             return null;
         }
 
+        if (!Helper.isValidEmail(email)) {
+            return null;
+        }
         return new ContactDetails.Builder()
                 .setCellPhone(cellPhone)
                 .setEmail(email)

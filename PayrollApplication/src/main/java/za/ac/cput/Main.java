@@ -6,36 +6,38 @@ import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.AddressDetailsFactory;
 import za.ac.cput.factory.ContactDetailsFactory;
 import za.ac.cput.factory.EmployeeFactory;
+import za.ac.cput.repository.EmployeeRepository;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.List;
+
 public class Main {
-    static void main(String[] args) {
-        System.out.println("Hello Backend!");
-        //Order of construction
-//    1contactDetails
+    public static void main(String[] args) {
+        EmployeeRepository db = EmployeeRepository.getRepository();
 
-        ContactDetails c1 = ContactDetailsFactory.createContactDetails("123456789", "123456712@mycput.ac.za", "12");
-//        System.out.println("Contact details: " + c1);
-//    2.AddressDetails
-        AddressDetails a1 = AddressDetailsFactory.createAddressDetails("Witsand", "Adderly");
-//    3.Employee
-        Employee e1 = EmployeeFactory.createEmployee("EMP123454252","Inga","Permanent","African",c1,a1);
-//        System.out.println(e1);
+        // 2. Create some "Parts" for our Employee
+        ContactDetails contact = ContactDetailsFactory.createContactDetails(
+                "0712345678", "inga@startup.com", "0215550000");
+        AddressDetails address = AddressDetailsFactory.createAddressDetails(
+                "123 Adderley St", "8001");
 
-           System.out.println("================ EMPLOYEE DETAILS ================");
-            System.out.println("ID:          " + e1.getEmployeeNumber());
-            System.out.println("Name:        " + e1.getName());
-            System.out.println("Type:        " + e1.getEmploymentType());
-            System.out.println("Nationality: " + e1.getNationality());
 
-            System.out.println("\n--- Contact Info ---");
-            System.out.println("Email:       " + e1.getContact().getEmail());
-            System.out.println("Cell:        " + e1.getContact().getCellPhone());
+        Employee emp1 = EmployeeFactory.createEmployee(
+                "EMP101", "Inga", "Permanent", "South African", contact, address);
 
-            System.out.println("\n--- Address ---");
-            System.out.println("Street:      " + e1.getAddress().getStreetAddress());
-            System.out.println("Postal:      " + e1.getAddress().getPostalAddress());
+        db.create(emp1);
 
+        Employee emp2 = EmployeeFactory.createEmployee(
+                "EMP102", "Lubanzi", "Contract", "Zimbabwe", contact, address);
+//        db.create(emp2);
+
+        System.out.println("\u001B[1mSTARTUP PAYROLL SYSTEM: CURRENT EMPLOYEES\u001B[0m");
+
+        List<Employee> allEmployees = db.getAll();
+
+        for (Employee e : allEmployees) {
+            System.out.println("Employee Number: " + e.getEmployeeNumber() + " | Name: " + e.getName() + " | Type: " + e.getEmploymentType());
+        }
+
+         System.out.println("Total Employees Managed: " + allEmployees.size());
     }
 }
