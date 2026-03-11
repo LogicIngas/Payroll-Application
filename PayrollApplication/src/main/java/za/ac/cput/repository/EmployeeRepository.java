@@ -4,7 +4,7 @@ import za.ac.cput.domain.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepository implements IRepository<Employee, String> {
+public class EmployeeRepository implements IEmployeeRepository {
     private static EmployeeRepository repository = null;
     private List<Employee> employeeList = null;
 
@@ -54,6 +54,7 @@ public class EmployeeRepository implements IRepository<Employee, String> {
         return this.employeeList.remove(employeeToDelete);
     }
 
+    @Override
     public List<Employee> getAll() {
         return employeeList;
     }

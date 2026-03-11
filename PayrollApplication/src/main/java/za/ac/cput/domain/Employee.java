@@ -1,5 +1,6 @@
 package za.ac.cput.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Employee {
@@ -9,6 +10,8 @@ public class Employee {
     private String nationality;
     private ContactDetails contact;
     private AddressDetails address;
+    private Position position;       // an employee can only fill one position at a time
+    private List<Identity> identities; // an employee can have multiple identity types
 
     public Employee() {
     }
@@ -20,9 +23,10 @@ public class Employee {
         this.nationality = builder.nationality;
         this.contact = builder.contact;
         this.address = builder.address;
+        this.position = builder.position;
+        this.identities = builder.identities;
     }
 
-    // Getters
     public String getEmployeeNumber() {
         return employeeNumber;
     }
@@ -30,7 +34,6 @@ public class Employee {
     public String getName() {
         return name;
     }
-
 
     public String getEmploymentType() {
         return employmentType;
@@ -48,6 +51,13 @@ public class Employee {
         return address;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public List<Identity> getIdentities() {
+        return identities;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,6 +81,8 @@ public class Employee {
         private String employeeNumber, name, employmentType, nationality;
         private ContactDetails contact;
         private AddressDetails address;
+        private Position position;
+        private List<Identity> identities;
 
         public Builder setEmployeeNumber(String employeeNumber) {
             this.employeeNumber = employeeNumber;
@@ -102,6 +114,16 @@ public class Employee {
             return this;
         }
 
+        public Builder setPosition(Position position) {
+            this.position = position;
+            return this;
+        }
+
+        public Builder setIdentities(List<Identity> identities) {
+            this.identities = identities;
+            return this;
+        }
+
         public Builder copy(Employee employee) {
             this.employeeNumber = employee.employeeNumber;
             this.name = employee.name;
@@ -109,6 +131,8 @@ public class Employee {
             this.nationality = employee.nationality;
             this.contact = employee.contact;
             this.address = employee.address;
+            this.position = employee.position;
+            this.identities = employee.identities;
             return this;
         }
 

@@ -24,16 +24,16 @@ public class PositionRepository implements IPositionRepository {
     }
 
     @Override
-    public Position read(String jobTitle) {
+    public Position read(String positionCode) {
         return positionList.stream()
-                .filter(p -> p.getJobTitle().equals(jobTitle))
+                .filter(p -> p.getPositionCode().equals(positionCode))
                 .findAny()
                 .orElse(null);
     }
 
     @Override
     public Position update(Position position) {
-        Position oldPosition = read(position.getJobTitle());
+        Position oldPosition = read(position.getPositionCode());
         if (oldPosition != null) {
             this.positionList.remove(oldPosition);
             this.positionList.add(position);
@@ -43,8 +43,8 @@ public class PositionRepository implements IPositionRepository {
     }
 
     @Override
-    public boolean delete(String jobTitle) {
-        Position positionToDelete = read(jobTitle);
+    public boolean delete(String positionCode) {
+        Position positionToDelete = read(positionCode);
         if (positionToDelete == null) return false;
         return this.positionList.remove(positionToDelete);
     }

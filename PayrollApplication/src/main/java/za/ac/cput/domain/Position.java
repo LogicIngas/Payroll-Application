@@ -1,29 +1,61 @@
-// Position.java
 package za.ac.cput.domain;
+
+import java.util.Objects;
 
 public class Position {
 
-    private String jobTitle; // I changed this from positionCode to JobTitle
-    private String status; // OPEN or CLOSED
+    private String positionCode; // unique identifier for this position
+    private String jobTitle;     // the job this position belongs to
+    private String status;       // OPEN or CLOSED
 
     public Position() {
     }
 
     private Position(Builder builder) {
+        this.positionCode = builder.positionCode;
         this.jobTitle = builder.jobTitle;
         this.status = builder.status;
+    }
+
+    public String getPositionCode() {
+        return positionCode;
     }
 
     public String getJobTitle() {
         return jobTitle;
     }
+
     public String getStatus() {
         return status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position)) return false;
+        Position position = (Position) o;
+        return Objects.equals(positionCode, position.positionCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(positionCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" + "positionCode='" + positionCode + '\'' + ", jobTitle='" + jobTitle + '\'' + ", status='" + status + '\'' + '}';
+    }
+
     public static class Builder {
+        private String positionCode;
         private String jobTitle;
         private String status;
+
+        public Builder setPositionCode(String positionCode) {
+            this.positionCode = positionCode;
+            return this;
+        }
 
         public Builder setJobTitle(String jobTitle) {
             this.jobTitle = jobTitle;
@@ -32,6 +64,13 @@ public class Position {
 
         public Builder setStatus(String status) {
             this.status = status;
+            return this;
+        }
+
+        public Builder copy(Position position) {
+            this.positionCode = position.positionCode;
+            this.jobTitle = position.jobTitle;
+            this.status = position.status;
             return this;
         }
 
