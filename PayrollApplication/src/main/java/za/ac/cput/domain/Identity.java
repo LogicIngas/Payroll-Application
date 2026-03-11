@@ -3,8 +3,8 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 public class Identity {
-    private String identityType; // e.g., Passport
-    private String identityValue; // e.g., ZG1234
+    private String identityType;
+    private String identityValue;
 
     public Identity() {
     }
@@ -53,6 +53,13 @@ public class Identity {
 
         public Builder setIdentityValue(String identityValue) {
             this.identityValue = identityValue;
+            return this;
+        }
+
+        //TODO: Add copy method
+        public Builder copy(Identity identity) {
+            this.identityType = identity.identityType;
+            this.identityValue = identity.identityValue;
             return this;
         }
 

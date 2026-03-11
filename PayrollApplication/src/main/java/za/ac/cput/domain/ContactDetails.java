@@ -26,17 +26,20 @@ public class ContactDetails {
     public String getHomeNumber() {
         return homeNumber;
     }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ContactDetails)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         ContactDetails that = (ContactDetails) o;
-        return Objects.equals(email, that.email);
+        return Objects.equals(getCellPhone(), that.getCellPhone())
+                &&Objects.equals(getEmail(), that.getEmail())
+                && Objects.equals(getHomeNumber(), that.getHomeNumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email);
+        return Objects.hash(getCellPhone(),
+                getEmail(), getHomeNumber());
     }
 
     @Override
@@ -61,6 +64,13 @@ public class ContactDetails {
 
         public Builder setHomeNumber(String homeNumber) {
             this.homeNumber = homeNumber;
+            return this;
+        }
+
+        public Builder copy(ContactDetails contactDetails) {
+            this.cellPhone = contactDetails.cellPhone;
+            this.email = contactDetails.email;
+            this.homeNumber = contactDetails.homeNumber;
             return this;
         }
 

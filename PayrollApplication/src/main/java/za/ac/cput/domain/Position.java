@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Position {
 
-    private String positionCode; // unique identifier for this position
+    private String positionCode;
     private String jobTitle;     // the job this position belongs to
     private String status;       // OPEN or CLOSED
 
@@ -31,15 +31,17 @@ public class Position {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Position)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Position position = (Position) o;
-        return Objects.equals(positionCode, position.positionCode);
+        return Objects.equals(getPositionCode(), position.getPositionCode()) &&
+                Objects.equals(getJobTitle(), position.getJobTitle()) &&
+                Objects.equals(getStatus(), position.getStatus());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionCode);
+        return Objects.hash(getPositionCode(),
+                getJobTitle(), getStatus());
     }
 
     @Override

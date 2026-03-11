@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Job {
     private String jobTitle;
-    private List<Position> positions; // a job can have several positions
+    private List<Position> positions;
 
     public Job() {
     }
@@ -25,15 +25,16 @@ public class Job {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Job)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return Objects.equals(jobTitle, job.jobTitle);
+        return Objects.equals(getJobTitle(), job.getJobTitle()) &&
+                Objects.equals(getPositions(), job.getPositions());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(jobTitle);
+        return Objects.hash(getJobTitle(),
+                getPositions());
     }
 
     @Override

@@ -26,15 +26,15 @@ public class AddressDetails {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AddressDetails)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         AddressDetails that = (AddressDetails) o;
-        return Objects.equals(streetAddress, that.streetAddress);
+        return Objects.equals(getStreetAddress(), that.getStreetAddress()) &&
+                Objects.equals(getPostalAddress(), that.getPostalAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(streetAddress);
+        return Objects.hash(getStreetAddress(), getPostalAddress());
     }
 
     @Override
@@ -55,10 +55,12 @@ public class AddressDetails {
             return this;
         }
 
-//        public AddressDetails.Builder copy(Employee address) {
-//            this.postalAddress
-//
-//        }
+public Builder copy(AddressDetails addressDetails) {
+            this.streetAddress = addressDetails.streetAddress;
+            this.postalAddress = addressDetails.postalAddress;
+            return this;
+}
+
         public AddressDetails build(){
             return new AddressDetails(this);
         }

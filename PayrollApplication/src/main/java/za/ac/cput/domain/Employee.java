@@ -11,7 +11,7 @@ public class Employee {
     private ContactDetails contact;
     private AddressDetails address;
     private Position position;       // an employee can only fill one position at a time
-    private List<Identity> identities; // an employee can have multiple identity types
+    private List<Identity> identity; // an employee can have multiple identity types
 
     public Employee() {
     }
@@ -24,7 +24,7 @@ public class Employee {
         this.contact = builder.contact;
         this.address = builder.address;
         this.position = builder.position;
-        this.identities = builder.identities;
+        this.identity = builder.identities;
     }
 
     public String getEmployeeNumber() {
@@ -55,21 +55,30 @@ public class Employee {
         return position;
     }
 
-    public List<Identity> getIdentities() {
-        return identities;
+    public List<Identity> getIdentity() {
+        return identity;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(employeeNumber, employee.employeeNumber);
+        return Objects.equals(getEmployeeNumber(), employee.getEmployeeNumber()) &&
+                Objects.equals(getName(), employee.getName()) &&
+                Objects.equals(getEmploymentType(), employee.getEmploymentType()) &&
+                Objects.equals(getNationality(), employee.getNationality()) &&
+                Objects.equals(getContact(), employee.getContact()) &&
+                Objects.equals(getAddress(), employee.getAddress()) &&
+                Objects.equals(getPosition(), employee.getPosition()) &&
+                Objects.equals(getIdentity(), employee.getIdentity());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeNumber);
+        return Objects.hash(getEmployeeNumber(),getName(),
+                getEmploymentType(), getNationality(),
+                getContact(),getAddress(),
+                getPosition(), getIdentity());
     }
 
     @Override
@@ -132,7 +141,7 @@ public class Employee {
             this.contact = employee.contact;
             this.address = employee.address;
             this.position = employee.position;
-            this.identities = employee.identities;
+            this.identities = employee.identity;
             return this;
         }
 
