@@ -39,7 +39,10 @@ public class AddressDetails {
 
     @Override
     public String toString() {
-        return "AddressDetails{" + "street='" + streetAddress + '\'' + '}';
+        return "AddressDetails{" +
+                "streetAddress='" + streetAddress + '\'' +
+                ", postalAddress='" + postalAddress + '\'' +
+                '}';
     }
 
     public static class Builder {
@@ -55,11 +58,11 @@ public class AddressDetails {
             return this;
         }
 
-public Builder copy(AddressDetails addressDetails) {
+        public Builder copy(AddressDetails addressDetails) {
             this.streetAddress = addressDetails.streetAddress;
             this.postalAddress = addressDetails.postalAddress;
             return this;
-}
+        }
 
         public AddressDetails build(){
             return new AddressDetails(this);

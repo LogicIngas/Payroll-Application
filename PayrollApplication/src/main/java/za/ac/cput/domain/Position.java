@@ -6,7 +6,7 @@ public class Position {
 
     private String positionCode;
     private String jobTitle;     // the job this position belongs to
-    private String status;       // OPEN or CLOSED
+    private String status;
 
     public Position() {
     }
@@ -46,7 +46,11 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" + "positionCode='" + positionCode + '\'' + ", jobTitle='" + jobTitle + '\'' + ", status='" + status + '\'' + '}';
+        return "Position{" +
+                "positionCode='" + positionCode + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 
     public static class Builder {

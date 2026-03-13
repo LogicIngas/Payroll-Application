@@ -39,7 +39,10 @@ public class Job {
 
     @Override
     public String toString() {
-        return "Job{" + "jobTitle='" + jobTitle + '\'' + ", positions=" + positions + '}';
+        return "Job{" +
+                "jobTitle='" + jobTitle + '\'' +
+                ", positions=" + positions +
+                '}';
     }
 
     public static class Builder {

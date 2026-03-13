@@ -44,7 +44,11 @@ public class ContactDetails {
 
     @Override
     public String toString() {
-        return "ContactDetails{" + "email='" + email + '\'' + '}';
+        return "ContactDetails{" +
+                "cellPhone='" + cellPhone + '\'' +
+                ", email='" + email + '\'' +
+                ", homeNumber='" + homeNumber + '\'' +
+                '}';
     }
 
     public static class Builder {

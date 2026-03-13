@@ -6,7 +6,8 @@ import za.ac.cput.util.Helper;
 public class ContactDetailsFactory {
 
     public static ContactDetails createContactDetails(String cellPhone, String email, String homeNumber) {
-        if (Helper.isNullOrEmpty(email)) {
+
+        if(Helper.isNullOrEmpty(cellPhone) || Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(homeNumber)) {
             return null;
         }
 

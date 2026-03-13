@@ -39,7 +39,10 @@ public class Identity {
 
     @Override
     public String toString() {
-        return "Identity{" + identityType + ": " + identityValue + "}";
+        return "Identity{" +
+                "identityType='" + identityType + '\'' +
+                ", identityValue='" + identityValue + '\'' +
+                '}';
     }
 
     public static class Builder {

@@ -10,8 +10,8 @@ public class Employee {
     private String nationality;
     private ContactDetails contact;
     private AddressDetails address;
-    private Position position;       // an employee can only fill one position at a time
-    private List<Identity> identity; // an employee can have multiple identity types
+    private Position position;
+    private List<Identity> identity; // an employee can have multiple identity types like ID and PassportID
 
     public Employee() {
     }
@@ -83,7 +83,16 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "id='" + employeeNumber + '\'' + ", name='" + name + '\'' + '}';
+        return "Employee{" +
+                "employeeNumber='" + employeeNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", employmentType='" + employmentType + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", contact=" + contact +
+                ", address=" + address +
+                ", position=" + position +
+                ", identity=" + identity +
+                '}';
     }
 
     public static class Builder {

@@ -15,7 +15,7 @@ public class EmployeeFactory {
                                           String nationality, ContactDetails contact, AddressDetails address,
                                           Position position, List<Identity> identities) {
 
-        if (Helper.isNullOrEmpty(employeeNumber) || Helper.isNullOrEmpty(name)) {
+        if (Helper.isNullOrEmpty(employeeNumber) || Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(employmentType) || Helper.isNullOrEmpty(nationality)) {
             return null;
         }
 

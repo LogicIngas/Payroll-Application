@@ -10,7 +10,7 @@ public class JobRepository implements IJobRepository {
     private static JobRepository repository = null;
     private List<Job> jobList;
 
-    public JobRepository() {
+    private JobRepository() {
         jobList = new ArrayList<>();
     }
 
@@ -36,7 +36,7 @@ public class JobRepository implements IJobRepository {
     @Override
     public Job update(Job job) {
         Job oldJob = read(job.getJobTitle());
-        if(oldJob != null){
+        if (oldJob != null) {
             this.jobList.remove(oldJob);
             this.jobList.add(job);
             return job;
@@ -47,7 +47,7 @@ public class JobRepository implements IJobRepository {
     @Override
     public boolean delete(String jobTitle) {
         Job jobToDelete = read(jobTitle);
-        if(jobToDelete == null){
+        if (jobToDelete == null) {
             return false;
         }
         return this.jobList.remove(jobToDelete);
