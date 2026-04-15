@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IdentityRepository extends IRepository <Identity, String>{
     List<Identity> getAllEmployees();
-    List<Identity> getAllEmployeesByIdentity();
+    List<Identity> getAllEmployeesByIdentity(String identity);
 }
