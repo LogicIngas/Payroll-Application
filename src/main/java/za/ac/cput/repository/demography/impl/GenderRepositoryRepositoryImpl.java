@@ -29,13 +29,13 @@ public class GenderRepositoryRepositoryImpl implements GenderRepository {
         if(success){
             return gender;
         }
-        return success;
+        return null;
     }
 
     @Override
     public Gender read(String s) {
-        for (Gender gender: genderList){
-            if(gender.getGeneratedId().equalsIgnoreCase(s)){
+        for(Gender gender: genderList){
+            if (gender.getGeneratedId().equalsIgnoreCase(s)){
                 return gender;
             }
         }
@@ -44,16 +44,26 @@ public class GenderRepositoryRepositoryImpl implements GenderRepository {
 
     @Override
     public Gender update(Gender gender) {
-        return null;
+        Gender oldGender = read(gender.getGeneratedId());
+        if(oldGender == null){
+            return null;
+        }
+        genderList.remove(oldGender);
+        genderList.add(gender);
+        return gender;
     }
 
     @Override
     public boolean delete(String s) {
-        return false;
+        Gender gender = read(s);
+        if(gender == null){
+            return false;
+        }
+        return genderList.remove(s);
     }
 
     @Override
     public List<Gender> getAll() {
-        return List.of();
+        return genderList;
     }
 }
