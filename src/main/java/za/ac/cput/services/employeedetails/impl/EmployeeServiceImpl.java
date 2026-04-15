@@ -10,13 +10,16 @@ import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private static EmployeeServiceImpl employeeService;
+
     private static EmployeeRepository employeeRepository = null;
 
 
     public EmployeeServiceImpl(){
         employeeRepository = new EmployeeRepositoryImpl();
     }
+
+    //Singleton
+    private static EmployeeServiceImpl employeeService;
 
     public static EmployeeServiceImpl getEmployeeService() {
         if(employeeService == null){
