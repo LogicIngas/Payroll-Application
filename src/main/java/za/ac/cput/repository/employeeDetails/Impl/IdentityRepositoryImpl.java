@@ -11,7 +11,7 @@ public class IdentityRepositoryImpl implements IdentityRepository {
     private List<Identity> identityList;
     private static IdentityRepositoryImpl repository = null;
 
-    private IdentityRepositoryImpl() {
+    public IdentityRepositoryImpl() {
         this.identityList = new ArrayList<>();
     }
 
@@ -49,7 +49,7 @@ public class IdentityRepositoryImpl implements IdentityRepository {
 
     @Override
     public Identity update(Identity identity) {
-        if (identity == null) return null;
+//        if (identity == null) return null;
 
         Identity oldIdentity = read(identity.getIdentityType());
 

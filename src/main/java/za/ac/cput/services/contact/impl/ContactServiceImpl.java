@@ -9,14 +9,18 @@ import java.util.List;
 
 public class ContactServiceImpl implements ContactService {
 
-    private static ContactRepository contactRepository = null;
-    private static ContactServiceImpl contactService;
+    private static ContactRepository contactRepository;
+    private static ContactServiceImpl contactService = null;
 
-    public static ContactRepository getContactRepository() {
-        if(contactRepository == null){
-            contactRepository = new ContactRepositoryImpl();
+    public ContactServiceImpl() {
+        this.contactRepository = new ContactRepositoryImpl();
+    }
+
+    public static ContactServiceImpl getContactService() {
+        if(contactService == null) {
+            return contactService = new ContactServiceImpl();
         }
-        return contactRepository;
+        return contactService;
     }
 
     @Override

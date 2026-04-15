@@ -12,8 +12,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     private static EmployeeRepository employeeRepository = null;
-
-
     public EmployeeServiceImpl(){
         employeeRepository = new EmployeeRepositoryImpl();
     }
