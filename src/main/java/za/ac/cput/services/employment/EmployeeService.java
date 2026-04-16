@@ -1,4 +1,4 @@
-package za.ac.cput.services.employeedetails;
+package za.ac.cput.services.employment;
 
 import za.ac.cput.entity.employment.Employee;
 import za.ac.cput.services.IService;

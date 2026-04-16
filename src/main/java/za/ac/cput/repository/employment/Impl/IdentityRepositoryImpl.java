@@ -1,8 +1,7 @@
-package za.ac.cput.repository.employeeDetails.Impl;
+package za.ac.cput.repository.employment.Impl;
 
-import za.ac.cput.entity.employment.Employee;
 import za.ac.cput.entity.employment.Identity;
-import za.ac.cput.repository.employeeDetails.IdentityRepository;
+import za.ac.cput.repository.employment.IdentityRepository;
 
 import java.util.ArrayList;
 import java.util.List;

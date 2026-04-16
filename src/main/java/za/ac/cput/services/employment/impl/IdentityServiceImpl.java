@@ -1,10 +1,9 @@
-package za.ac.cput.services.employeedetails.impl;
+package za.ac.cput.services.employment.impl;
 
-import za.ac.cput.entity.employment.Employee;
 import za.ac.cput.entity.employment.Identity;
-import za.ac.cput.repository.employeeDetails.IdentityRepository;
-import za.ac.cput.repository.employeeDetails.Impl.IdentityRepositoryImpl;
-import za.ac.cput.services.employeedetails.IdentityService;
+import za.ac.cput.repository.employment.IdentityRepository;
+import za.ac.cput.repository.employment.Impl.IdentityRepositoryImpl;
+import za.ac.cput.services.employment.IdentityService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package za.ac.cput.repository.employeeDetails;
+package za.ac.cput.repository.employment;
 
 import za.ac.cput.entity.employment.Identity;
 import za.ac.cput.repository.IRepository;
