@@ -71,6 +71,6 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public List<Contact> getContactByEmail(String email) {
-        return List.of();
+        return contactList;
     }
 }

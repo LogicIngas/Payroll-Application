@@ -1,5 +1,6 @@
 package za.ac.cput.services.contact.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.contact.Contact;
 import za.ac.cput.repository.contact.ContactRepository;
 import za.ac.cput.repository.contact.impl.ContactRepositoryImpl;
@@ -7,6 +8,7 @@ import za.ac.cput.services.contact.ContactService;
 
 import java.util.List;
 
+@Service
 public class ContactServiceImpl implements ContactService {
 
     private static ContactRepository contactRepository;

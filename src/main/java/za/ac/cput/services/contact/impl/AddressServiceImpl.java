@@ -1,5 +1,6 @@
 package za.ac.cput.services.contact.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.contact.Address;
 import za.ac.cput.repository.contact.AddressRepository;
 import za.ac.cput.repository.contact.impl.AddressRepositoryImpl;
@@ -7,6 +8,7 @@ import za.ac.cput.services.contact.AddressService;
 
 import java.util.List;
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
     private static AddressRepository addressRepository = null;
